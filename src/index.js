@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Main from './components/Main'
 
 ReactDOM.render(
- <h1>holamundo</h1>,document.getElementById("root"));
+<Main/>
+ 
+ ,document.getElementById("root"));
