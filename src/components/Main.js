@@ -2,55 +2,123 @@ import React from 'react'
 import Intro from './Intro'
 import Questions from './Questions'
 import Footer from './Footer'
+const data = JSON.parse(Get("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple"))
 
-class Main extends React.Component{
+function Get(yourUrl) {
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET", yourUrl, false);
+    Httpreq.send(null);
+    return Httpreq.responseText;
+
+}
 
 
-constructor(props){
-    super(props)
+class Main extends React.Component {
 
-    this.state ={
-        index : 0,
-        question: "How many values can a single byte represent?",
-        realanswer: "256",
-        answer1 : "1",
-        answer2 : "256",
-        answer3 : 	"8",
-        answer4 : 	"1024",
-        round: 1,
-        score: 0
+
+
+    constructor(props) {
+        console.log(data["results"])
+        super(props)
+        this.state = {
+            realanswer: "",
+            answer1: "",
+            answer2: "",
+            answer3: "",
+            answer4: "",
+            round: 0,
+            score: 0,
+        }
+
+
+        this.nextQuestion = this.nextQuestion.bind(this)
+        this.increaseScore = this.increaseScore.bind(this)
     }
-    this.nextQuestion = this.nextQuestion.bind(this)
-    this.increaseScore = this.increaseScore.bind(this)
-}
 
-increaseScore(){
-    this.setState({
-        score:(parseInt(this.state.score)+1).toString()
-    })
-}
+    newRound() {
+        if (this.state.round === data["results"].length) {
+            console.log("Termino")
+            return;
+        }
+        var res = Math.round(Math.random() * (4 - 1) + 1)
 
-nextQuestion(){
-    this.setState({
-        round : (parseInt(this.state.round)+1).toString()
-    })
-}
+        this.setState({
+            round: (parseInt(this.state.round) + 1),
+            realanswer: data["results"][this.state.round].correct_answer,
+            question: data["results"][this.state.round].question
+        })
+        if (res === 1) {
+            this.setState({
+                answer1: data["results"][this.state.round].correct_answer,
+                answer2: data["results"][this.state.round].incorrect_answers[0],
+                answer3: data["results"][this.state.round].incorrect_answers[1],
+                answer4: data["results"][this.state.round].incorrect_answers[2]
+            })
+        }
 
-    render(){
-        return(
-<div className ="container">
+        if (res === 2) {
 
-<Intro round = {this.state.round} score = {this.state.score}/>
-<Questions increaseScore = {this.increaseScore} realanswer = {this.state.realanswer}  question = {this.state.question} answer1 = {this.state.answer1} answer2= {this.state.answer2}  answer3 = {this.state.answer3} answer4 = {this.state.answer4} />
+            this.setState({
+                answer1: data["results"][this.state.round].incorrect_answers[1],
+                answer2: data["results"][this.state.round].correct_answer,
+                answer3: data["results"][this.state.round].incorrect_answers[0],
+                answer4: data["results"][this.state.round].incorrect_answers[2]
+            })
 
-<button onClick = {this.nextQuestion}>Next Question</button>
+        }
 
-<Footer/>
+        if (res === 3) {
+            this.setState({
+                answer1: data["results"][this.state.round].incorrect_answers[1],
+                answer2: data["results"][this.state.round].incorrect_answers[0],
+                answer3: data["results"][this.state.round].correct_answer,
+                answer4: data["results"][this.state.round].incorrect_answers[2],
+            })
 
-</div>
+        }
+
+        if (res === 4) {
+            this.setState({
+                answer1: data["results"][this.state.round].incorrect_answers[1],
+                answer2: data["results"][this.state.round].incorrect_answers[0],
+                answer3: data["results"][this.state.round].incorrect_answers[2],
+                answer4: data["results"][this.state.round].correct_answer
+            })
+
+        }
+
+
+    }
+
+
+    componentDidMount() {
+        this.newRound()
+
+    }
+
+    increaseScore() {
+        this.setState({
+            score: (parseInt(this.state.score) + 1).toString()
+        })
+    }
+
+    nextQuestion() {
+
+        this.componentDidMount()
+    }
+
+    render() {
+        return (
+            <div className="container">
+
+                <Intro round={this.state.round} score={this.state.score} />
+                <Questions nextQuestion={this.nextQuestion} increaseScore={this.increaseScore} realanswer={this.state.realanswer} question={this.state.question} answer1={this.state.answer1} answer2={this.state.answer2} answer3={this.state.answer3} answer4={this.state.answer4} />
+                <Footer />
+
+            </div>
         );
 
-        
+
     }
 
 }
