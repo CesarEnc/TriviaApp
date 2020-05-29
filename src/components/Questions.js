@@ -19,40 +19,43 @@ class Questions extends React.Component {
     }
 
     handleOptionChange(e) {
-        this.clearRadio()
-        this.setState({
-            selectedOption: e.target.value,
-         
-        })
-       // document.getElementById("td"+e.target.id).style.backgroundColor ="green"  
-        if(e.target.id === "1"){
+        if(!this.state.checked){
+            this.clearRadio()
             this.setState({
-                isOne : true
+                selectedOption: e.target.value,
              
             })
+           // document.getElementById("td"+e.target.id).style.backgroundColor ="green"  
+            if(e.target.id === "1"){
+                this.setState({
+                    isOne : true
+                 
+                })
+            }
+    
+            if(e.target.id === "2"){
+                this.setState({
+                    isTwo : true
+                 
+                })
+            }
+    
+            if(e.target.id === "3"){
+                this.setState({
+                    isThree : true
+                 
+                })
+            }
+    
+            if(e.target.id === "4"){
+                this.setState({
+                    isFour : true
+                 
+                })
+            }
+    
         }
-
-        if(e.target.id === "2"){
-            this.setState({
-                isTwo : true
-             
-            })
-        }
-
-        if(e.target.id === "3"){
-            this.setState({
-                isThree : true
-             
-            })
-        }
-
-        if(e.target.id === "4"){
-            this.setState({
-                isFour : true
-             
-            })
-        }
-
+        
     }
 
     check() {
@@ -77,7 +80,6 @@ class Questions extends React.Component {
     }
 
     endTrivia() {
-        alert("You got " + this.props.score + " correct answers!")
         this.props.endMainTrivia()
     }
 
@@ -134,7 +136,7 @@ class Questions extends React.Component {
 
 
 
-                    {this.props.round <= 10 && !this.state.finished ? <button disabled={this.state.checked} className="btn btn-dark " onClick={this.check} style={{ margin: "30px" }}>Check</button> : null}
+                    {this.props.round <= this.props.lenght && !this.state.finished ? <button disabled={this.state.checked} className="btn btn-dark " onClick={this.check} style={{ margin: "30px" }}>Check</button> : null}
                     {this.state.checked && this.props.round < this.props.lenght ? <button className="btn btn-info " onClick={this.nextQuestion} style={{ margin: "30px" }}>Next Question</button> : null}
                     {this.state.checked && this.props.round === this.props.lenght  ? <button className="btn btn-info " onClick={this.endTrivia} style={{ margin: "30px" }}>End Trivia</button> : null}
 
