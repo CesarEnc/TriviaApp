@@ -2,6 +2,7 @@ import React from 'react'
 import Intro from './Intro'
 import Questions from './Questions'
 import Footer from './Footer'
+import Ending from './Ending'
 const data = JSON.parse(GetData("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple"))
 
 function GetData(yourUrl) {
@@ -16,7 +17,6 @@ function GetData(yourUrl) {
 class Main extends React.Component {
 
     constructor(props) {
-        console.log(data["results"])
         super(props)
         this.state = {
             realanswer: "",
@@ -98,10 +98,7 @@ class Main extends React.Component {
 
     }
 
-    newTrivia() {
-        // Recarga la pagina para una nueva trivia
-        window.location.reload();
-    }
+   
     endMainTrivia() {
         // Deja de monstrar el componente Questions
         this.setState({
@@ -130,8 +127,9 @@ class Main extends React.Component {
 
                 {!this.state.finished ? <Questions endMainTrivia={this.endMainTrivia} finished={this.state.finished} lenght={data["results"].length} score={this.state.score} round={this.state.round} nextQuestion={this.nextQuestion} increaseScore={this.increaseScore} realanswer={this.state.realanswer} question={this.state.question} answer1={this.state.answer1} answer2={this.state.answer2} answer3={this.state.answer3} answer4={this.state.answer4} /> : null}
 
-                <center>{this.state.finished ? <button className="btn btn-info " onClick={this.newTrivia} style={{ margin: "30px" }}>New trivia</button> : null}</center>
+                {this.state.finished ? <Ending score={this.state.score} lenght={data["results"].length}/> : null}
 
+                
                 <Footer />
             </div>
         );
