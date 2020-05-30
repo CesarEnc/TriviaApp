@@ -1,2 +1,4 @@
 # Dependencias
 node_modules
+# Despliege
+build/
