@@ -70,6 +70,7 @@ class Questions extends React.Component {
                 document.getElementById(this.state.selectedOption).style.backgroundColor= "green"
             }else{
                 document.getElementById(this.state.selectedOption).style.backgroundColor = "red"
+                document.getElementById(this.props.realanswer).style.backgroundColor= "green"
             }
             
             this.setState({
@@ -93,6 +94,7 @@ class Questions extends React.Component {
     }
     nextQuestion() {
         document.getElementById(this.state.selectedOption).style.backgroundColor = ""
+        document.getElementById(this.props.realanswer).style.backgroundColor = ""
         this.props.nextQuestion()
         this.clearRadio()
         this.setState({
@@ -136,7 +138,7 @@ class Questions extends React.Component {
 
 
 
-                    {this.props.round <= this.props.lenght && !this.state.finished ? <button disabled={this.state.checked} className="btn btn-dark " onClick={this.check} style={{ margin: "30px" }}>Check</button> : null}
+                    {this.props.round <= this.props.lenght && !this.state.checked ? <button disabled={this.state.checked} className="btn btn-dark " onClick={this.check} style={{ margin: "30px" }}>Check</button> : null}
                     {this.state.checked && this.props.round < this.props.lenght ? <button className="btn btn-info " onClick={this.nextQuestion} style={{ margin: "30px" }}>Next Question</button> : null}
                     {this.state.checked && this.props.round === this.props.lenght  ? <button className="btn btn-info " onClick={this.endTrivia} style={{ margin: "30px" }}>End Trivia</button> : null}
 
