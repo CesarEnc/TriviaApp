@@ -144,7 +144,7 @@ class Questions extends React.Component {
 
 
                 </div>
-                <button className="btn btn-secondary " onClick={()=> window.location.reload()} style={{ margin: "30px" }}>New trivia</button>
+                <button className="btn btn-danger d-flex p-2" onClick={()=> window.location.reload()} >New trivia</button>
 
 
             </div>

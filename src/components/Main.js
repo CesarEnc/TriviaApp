@@ -1,6 +1,8 @@
 import React from 'react'
 import TriviaSettings from './TriviaSettings'
 import Trivia from './Trivia'
+import '../TriviaApp.css'
+
 class Main extends React.Component {
     constructor(props) {
         super(props)
@@ -37,12 +39,13 @@ class Main extends React.Component {
     render() {
         return (
 
-            <div className="text-center" style={{ marginBottom: "30px" }}>
+            <div className="text-center" style={{ marginBottom: "30px" }}id="MainDiv">
             {!this.state.selected ? <TriviaSettings getTrivia = {this.getTrivia} nquestions = {this.state.nquestions}handleChangeNquestions = {this.handleChangeNquestions} handleChangeCategory = {this.handleChangeCategory}/> : null}               
             
             {this.state.selected ? <Trivia category = {this.state.category} nquestions = {this.state.nquestions}/> : null}
-
+            
             </div>
+            
         );
 
      

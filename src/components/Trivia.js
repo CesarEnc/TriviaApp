@@ -1,9 +1,8 @@
 import React from 'react'
 import Intro from './Intro'
 import Questions from './Questions'
-import Footer from './Footer'
 import Ending from './Ending'
-
+import '../TriviaApp.css'
 
 function decodeHTMLEntities(text) {
     var entities = [
@@ -144,7 +143,7 @@ class Trivia extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container" id="TriviaDiv">
 
                 <Intro category={this.state.data["results"][0].category} round={this.state.round} score={this.state.score} />
 
@@ -153,7 +152,7 @@ class Trivia extends React.Component {
                 {this.state.finished ? <Ending score={this.state.score} lenght={this.state.data["results"].length}/> : null}
 
                 
-                <Footer />
+                
             </div>
         );
 

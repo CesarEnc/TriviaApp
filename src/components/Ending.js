@@ -19,7 +19,7 @@ class Ending extends React.Component {
                 </div>
 
                 <div className="row  d-flex justify-content-center ">
-                <button className="btn btn-info " onClick={this.newTrivia} style={{ margin: "10px" }}>New trivia</button>
+                <button className="btn btn-success " onClick={this.newTrivia} style={{ margin: "10px" }}>New trivia</button>
 
                 </div>
             </div>
