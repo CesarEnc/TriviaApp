@@ -9,7 +9,7 @@ class Main extends React.Component {
 
         this.state ={
             category : "9",
-            nquestions : 30,
+            nquestions : 9,
             selected : false
         }
 

@@ -72,7 +72,7 @@ class TriviaSettings extends React.Component {
                 </div>
 
                 <div className="row d-flex justify-content-center  ">
-                <input type="range"  min="1" max="30" onChange = {this.handleChangeNumero}></input>
+                <input type="range"  min="1" max="9" onChange = {this.handleChangeNumero}></input>
         <h4 >{this.props.nquestions}</h4>
                 </div>
         <button className="btn btn-dark " onClick={this.props.getTrivia} style={{ margin: "10px" }}>Get Trivia</button>

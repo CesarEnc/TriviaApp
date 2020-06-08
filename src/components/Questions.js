@@ -68,9 +68,12 @@ class Questions extends React.Component {
                     checked: true
                 })
                 document.getElementById(this.state.selectedOption).style.backgroundColor= "green"
+                document.getElementById(this.state.selectedOption).style.color = "white"
             }else{
                 document.getElementById(this.state.selectedOption).style.backgroundColor = "red"
                 document.getElementById(this.props.realanswer).style.backgroundColor= "green"
+                document.getElementById(this.state.selectedOption).style.color = "white"
+                document.getElementById(this.props.realanswer).style.color = "white"
             }
             
             this.setState({
@@ -95,6 +98,8 @@ class Questions extends React.Component {
     nextQuestion() {
         document.getElementById(this.state.selectedOption).style.backgroundColor = ""
         document.getElementById(this.props.realanswer).style.backgroundColor = ""
+        document.getElementById(this.state.selectedOption).style.color = "black"
+        document.getElementById(this.props.realanswer).style.color = "black"
         this.props.nextQuestion()
         this.clearRadio()
         this.setState({
@@ -134,7 +139,7 @@ class Questions extends React.Component {
 
 
 
-
+         
 
 
 
