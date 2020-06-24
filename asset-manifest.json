@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TriviaApp/static/css/main.24c80f9f.chunk.css",
-    "main.js": "/TriviaApp/static/js/main.b5b39cc0.chunk.js",
-    "main.js.map": "/TriviaApp/static/js/main.b5b39cc0.chunk.js.map",
+    "main.js": "/TriviaApp/static/js/main.99c183f7.chunk.js",
+    "main.js.map": "/TriviaApp/static/js/main.99c183f7.chunk.js.map",
     "runtime-main.js": "/TriviaApp/static/js/runtime-main.e9e88697.js",
     "runtime-main.js.map": "/TriviaApp/static/js/runtime-main.e9e88697.js.map",
     "static/js/2.2ddcdf61.chunk.js": "/TriviaApp/static/js/2.2ddcdf61.chunk.js",
     "static/js/2.2ddcdf61.chunk.js.map": "/TriviaApp/static/js/2.2ddcdf61.chunk.js.map",
     "index.html": "/TriviaApp/index.html",
-    "precache-manifest.07754f2d820a1c4cadffacea237b015e.js": "/TriviaApp/precache-manifest.07754f2d820a1c4cadffacea237b015e.js",
+    "precache-manifest.356e258fb11f28f4f5b2a079fa688a9d.js": "/TriviaApp/precache-manifest.356e258fb11f28f4f5b2a079fa688a9d.js",
     "service-worker.js": "/TriviaApp/service-worker.js",
     "static/css/main.24c80f9f.chunk.css.map": "/TriviaApp/static/css/main.24c80f9f.chunk.css.map",
     "static/js/2.2ddcdf61.chunk.js.LICENSE.txt": "/TriviaApp/static/js/2.2ddcdf61.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e9e88697.js",
     "static/js/2.2ddcdf61.chunk.js",
     "static/css/main.24c80f9f.chunk.css",
-    "static/js/main.b5b39cc0.chunk.js"
+    "static/js/main.99c183f7.chunk.js"
   ]
 }
