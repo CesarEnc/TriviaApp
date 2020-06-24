@@ -24,7 +24,6 @@ class TriviaSettings extends React.Component {
 
         this.handleChangeNumero = this.handleChangeNumero.bind(this)
         this.handleChangeId = this.handleChangeId.bind(this)
-        this.getTrivia = this.getTrivia.bind(this)
     }
 
     componentDidMount() {
@@ -43,11 +42,6 @@ class TriviaSettings extends React.Component {
         this.props.handleChangeCategory(e.target.value)
     }
 
-    getTrivia(){
-        this.setState({
-            selected : true
-        })
-    }
 
     render() {
         return (
@@ -59,15 +53,18 @@ class TriviaSettings extends React.Component {
                 </div>
 
                 <div className="row d-flex justify-content-center  " style = {{margin : "20px"}}>
-                    <h4>Choose category</h4>
-    
+                    <h4>Choose a category </h4> 
+
+                </div>
+                <div className="row d-flex justify-content-center  " style = {{margin : "20px"}}>
+        
                     <select name="categorias" id="categorias" onChange = {this.handleChangeId}>
 
                     </select>
                 </div>
 
-                <div className="row d-flex justify-content-center  ">
-                    <h4>Choose the number of questions</h4>
+                <div className="row d-flex justify-content-center  " style = {{margin : "20px"}}>
+                    <h4>Select the number of questions</h4>
                    
                 </div>
 
