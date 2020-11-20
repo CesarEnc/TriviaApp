@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/TriviaApp/static/css/main.24c80f9f.chunk.css",
-    "main.js": "/TriviaApp/static/js/main.99c183f7.chunk.js",
-    "main.js.map": "/TriviaApp/static/js/main.99c183f7.chunk.js.map",
+    "main.js": "/TriviaApp/static/js/main.a031a83a.chunk.js",
+    "main.js.map": "/TriviaApp/static/js/main.a031a83a.chunk.js.map",
     "runtime-main.js": "/TriviaApp/static/js/runtime-main.e9e88697.js",
     "runtime-main.js.map": "/TriviaApp/static/js/runtime-main.e9e88697.js.map",
-    "static/js/2.2ddcdf61.chunk.js": "/TriviaApp/static/js/2.2ddcdf61.chunk.js",
-    "static/js/2.2ddcdf61.chunk.js.map": "/TriviaApp/static/js/2.2ddcdf61.chunk.js.map",
+    "static/js/2.fb3a25ca.chunk.js": "/TriviaApp/static/js/2.fb3a25ca.chunk.js",
+    "static/js/2.fb3a25ca.chunk.js.map": "/TriviaApp/static/js/2.fb3a25ca.chunk.js.map",
     "index.html": "/TriviaApp/index.html",
-    "precache-manifest.356e258fb11f28f4f5b2a079fa688a9d.js": "/TriviaApp/precache-manifest.356e258fb11f28f4f5b2a079fa688a9d.js",
+    "precache-manifest.932b28ddf98d92b004adbd12ac08f49b.js": "/TriviaApp/precache-manifest.932b28ddf98d92b004adbd12ac08f49b.js",
     "service-worker.js": "/TriviaApp/service-worker.js",
     "static/css/main.24c80f9f.chunk.css.map": "/TriviaApp/static/css/main.24c80f9f.chunk.css.map",
-    "static/js/2.2ddcdf61.chunk.js.LICENSE.txt": "/TriviaApp/static/js/2.2ddcdf61.chunk.js.LICENSE.txt"
+    "static/js/2.fb3a25ca.chunk.js.LICENSE.txt": "/TriviaApp/static/js/2.fb3a25ca.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e9e88697.js",
-    "static/js/2.2ddcdf61.chunk.js",
+    "static/js/2.fb3a25ca.chunk.js",
     "static/css/main.24c80f9f.chunk.css",
-    "static/js/main.99c183f7.chunk.js"
+    "static/js/main.a031a83a.chunk.js"
   ]
 }
