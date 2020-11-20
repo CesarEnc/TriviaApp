@@ -3,37 +3,16 @@ import Intro from './Intro'
 import Questions from './Questions'
 import Ending from './Ending'
 import '../TriviaApp.css'
-
-function decodeHTMLEntities(text) {
-    var entities = [
-        ['amp', '&'],
-        ['apos', '\''],
-        ['#x27', '\''],
-        ['#x2F', '/'],
-        ['#39', '\''],
-        ['#47', '/'],
-        ['lt', '<'],
-        ['gt', '>'],
-        ['nbsp', ' '],
-        ['quot', '"']
-    ];
-
-    for (var i = 0, max = entities.length; i < max; ++i) 
-        text = text.replace(new RegExp('&'+entities[i][0]+';', 'g'), entities[i][1]);
-
-    return text;
-}
+import { decode } from 'base64-url'
 
 
 function GetData(category,nquestions) {
-    var url = `https://opentdb.com/api.php?amount=${nquestions}&category=${category}&difficulty=easy&type=multiple`
+    var url = `https://opentdb.com/api.php?amount=${nquestions}&category=${category}&difficulty=easy&type=multiple&encode=base64`
     var Httpreq = new XMLHttpRequest(); // a new request
     Httpreq.open("GET", url, false);
     Httpreq.send(null);
     return JSON.parse(Httpreq.responseText); 
 }
-
-
 
 
 class Trivia extends React.Component {
@@ -71,13 +50,13 @@ class Trivia extends React.Component {
 
         this.setState({
             round: this.state.round + 1,
-            realanswer: this.state.data["results"][this.state.round].correct_answer,
-            question: decodeHTMLEntities(this.state.data["results"][this.state.round].question)
+            realanswer: decode(this.state.data["results"][this.state.round].correct_answer),
+            question: decode(this.state.data["results"][this.state.round].question)
         })
-        let correct_answer = decodeHTMLEntities(this.state.data["results"][this.state.round].correct_answer)
-        let incorrect_answer0 = decodeHTMLEntities(this.state.data["results"][this.state.round].incorrect_answers[0])
-        let incorrect_answer1 = decodeHTMLEntities(this.state.data["results"][this.state.round].incorrect_answers[1])
-        let incorrect_answer2 = decodeHTMLEntities(this.state.data["results"][this.state.round].incorrect_answers[2])
+        let correct_answer = decode(this.state.data["results"][this.state.round].correct_answer)
+        let incorrect_answer0 = decode(this.state.data["results"][this.state.round].incorrect_answers[0])
+        let incorrect_answer1 = decode(this.state.data["results"][this.state.round].incorrect_answers[1])
+        let incorrect_answer2 = decode(this.state.data["results"][this.state.round].incorrect_answers[2])
         if (res === 1) {
             this.setState({
                 answer1: correct_answer,
@@ -145,7 +124,7 @@ class Trivia extends React.Component {
         return (
             <div className="container" id="TriviaDiv">
 
-                <Intro category={this.state.data["results"][0].category} round={this.state.round} score={this.state.score} />
+                <Intro category={decode(this.state.data["results"][0].category)} round={this.state.round} score={this.state.score} />
 
                 {!this.state.finished ? <Questions endMainTrivia={this.endMainTrivia} finished={this.state.finished} lenght={this.state.data["results"].length} score={this.state.score} round={this.state.round} nextQuestion={this.nextQuestion} increaseScore={this.increaseScore} realanswer={this.state.realanswer} question={this.state.question} answer1={this.state.answer1} answer2={this.state.answer2} answer3={this.state.answer3} answer4={this.state.answer4} /> : null}
 
