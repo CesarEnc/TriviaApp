@@ -14,7 +14,7 @@ npm install
 
 Use NPM run to build and run the project.
 ```bash
-npm run
+npm start
 ```
 
 ## Fun Fact
