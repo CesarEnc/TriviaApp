@@ -18,6 +18,6 @@ npm start
 ```
 
 ## Fun Fact
-I started this project with basicly no clue of how ReactJS works, lol. 
+I started this project with basically no clue of how ReactJS works, lol. 
 #SorryForTheDirtyCode
 
